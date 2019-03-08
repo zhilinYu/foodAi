@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>foodAiAPPWeb</title>
+  <meta name="x5-orientation" content="portrait">
+  <meta name="screen-orientation" content="portrait">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="stylesheet" type="text/css" href="static/css/reset.css">
+  <style>
+    .hsp{
+      display: none;
+      position: absolute;
+      top: 0;
+      bottom:0;
+      z-index: 999;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.8);
+    }
+    .hsp img{
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 3rem;
+    }
+  </style>
+  </style>
+  <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <div class="hsp">
+    <img src="static/images/hengping.png" alt="">
+  </div>
+</body>
+<script>
+if(window.orientation == -90 || window.orientation == 90){
+  document.getElementsByClassName("hsp")[0].style.display = "block";
+  document.getElementsByTagName("html")[0].style.overflow = "hidden";
+  document.getElementsByTagName("html")[0].style.position = "fixed";
+}  
+window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+function hengshuping() {  
+  if (window.orientation == 90 || window.orientation == -90) {  
+      //横屏
+    document.getElementsByClassName("hsp")[0].style.display = "block";
+    document.getElementsByTagName("html")[0].style.overflow = "hidden";
+    document.getElementsByTagName("html")[0].style.position = "fixed";  
+  } else {  
+      //竖屏
+    document.getElementsByClassName("hsp")[0].style.display = "none"; 
+    document.getElementsByTagName("html")[0].style.overflow = "auto";
+    document.getElementsByTagName("html")[0].style.position = "static";
+    window.location.reload();   
+  }  
+} 
+</script>
+<script src="static/js/qingstor-sdk.min.js"></script>
+</html>

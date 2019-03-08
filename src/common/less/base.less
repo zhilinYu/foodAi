@@ -1,0 +1,40 @@
+body, html{
+  height: 100%;
+  line-height: 1;
+  font-weight: 200;
+  font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif;
+}
+.clearfix{
+  display: inline-block;
+  &:after{
+    display: block;
+    content: ".";
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+.border-1px(@color){
+  position: relative;
+  &:after{
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid @color;
+    content: ' ';
+  }
+}
+.border-none(){
+  &:after{
+    display: none;
+  }
+}
+
+.borderRadius(@size){
+  border-radius:@size;/*no*/
+  -webkit-border-radius:@size;/*no*/
+  -moz-border-radius:@size;/*no*/
+}
